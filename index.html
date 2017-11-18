@@ -19,7 +19,9 @@
 
   <div id="app">
     <h1 v-text="message"></h1>
-    <input type="text" v-model="message">
+    <h3>Visit: <a :href="url">{{cleanUrl}}</a></h3>
+    <input type="text" v-model="url">
+    <button @click="humanizeUrl" class="btn btn-primary">Hey!</button>
   </div>
 
   <script src="https://unpkg.com/vue@2.5.6/dist/vue.js"></script>
@@ -28,17 +30,16 @@
 
   var app = new Vue({
     el: '#app',
+    methods : {
+      humanizeUrl(){
+        this.cleanUrl = this.url.replace(/^https?:\/\//,'').replace(/\/$/,'');
+      }
+    },
     data() {
       return{
         message : 'Making sandshapes in the sandbox',
-        flag: true,
-        todoList : [
-          {text : 'First thing to do'},
-          {text : 'Second thing to do'},
-          {text : 'Third thing to do'},
-          {text : 'Fourth thing to do'},
-        ],
-        number8 : 50
+        url : "",
+        cleanUrl : ""
       }
     }
   });
