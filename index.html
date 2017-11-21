@@ -7,42 +7,22 @@
   <title>Single Html Vue Example</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <style>
-    body {
-      margin: 20px;
-    }
-    input {
-      width: 400px;
-    }
+  body {
+    margin: 20px;
+  }
+  input {
+    width: 400px;
+  }
   </style>
 </head>
 <body>
 
   <div id="app">
-    <h1 v-text="message"></h1>
-    <h3>Visit: <a :href="url">{{cleanUrl}}</a></h3>
-    <input type="text" v-model="url">
-    <button @click="humanizeUrl" class="btn btn-primary">Hey!</button>
   </div>
 
   <script src="https://unpkg.com/vue@2.5.6/dist/vue.js"></script>
 
-  <script>
-
-  var app = new Vue({
-    el: '#app',
-    methods : {
-      humanizeUrl(){
-        this.cleanUrl = this.url.replace(/^https?:\/\//,'').replace(/\/$/,'');
-      }
-    },
-    data() {
-      return{
-        message : 'Making sandshapes in the sandbox',
-        url : "",
-        cleanUrl : ""
-      }
-    }
-  });
-  </script>
+  <script src="names-form.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
